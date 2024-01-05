@@ -1,21 +1,37 @@
 package com.example.servlet;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.*;
+
 public class um {
 
 	public static void main(String[] args) {
-		String a = "178";
-		String b = "76";
 		
-		int height = Integer.parseInt(a);
-		int weight = Integer.parseInt(b);
+		String[] participant = {"leo", "kiki", "eden"};
+		String[] completion = {"eden", "kiki"};
 		
-		System.out.println(height);
-		System.out.println(weight);
-		int bmi = (weight * ((height / 100) * (height / 100)));
-		System.out.println("------------------------");
-		System.out.println((double)((height / 100) * (height / 100)));
-		System.out.println((double)(height / 100) + (height % 100 * 0.01));
-		System.out.println((double)(weight / (((height / 100) + (height % 100 * 0.01)) * ((height / 100) + (height % 100 * 0.01)))));
+		List<String> list = new ArrayList<>(Arrays.asList(participant));
+		List<String> list2 = new ArrayList<>(Arrays.asList(completion));
+		
+		boolean bool = false;
+		for(int i = 0; i < list.size(); i++) {
+			bool = false;
+			for(int j = 0; j < list2.size(); j++) {
+				if(list.get(i).equals(list2.get(j))) {
+					bool = true;
+				}
+			}
+			
+			if(bool == false) {
+				list.remove(i);
+			}
+			
+		}
+		System.out.println(list);
+		
+		
+		
 
 	}
 
